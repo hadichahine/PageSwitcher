@@ -1,5 +1,8 @@
 {
   "name": "pageswitcher",
   "author": "Hadi Chahine",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "qunit": "^2.9.1"
+  }
 }
