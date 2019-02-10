@@ -6,7 +6,7 @@ class PageSwitcher {
     }
 
     next(){
-        if(this.hasMoreThanOnePage() && this.reachedFinalPage()){
+        if(this.hasMoreThanOnePage() && this.didNotReachFinalPage()){
             this.pages[this.currentPageIndex].hide();
             this.pages[this.currentPageIndex + 1].show();
             this.currentPageIndex++;
@@ -17,7 +17,7 @@ class PageSwitcher {
         return this.pages.length > 1;
     }
 
-    reachedFinalPage(){
+    didNotReachFinalPage(){
         return this.currentPageIndex !== this.pages.length - 1;
     }
 
