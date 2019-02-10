@@ -2,6 +2,9 @@
   "name": "pageswitcher",
   "author": "Hadi Chahine",
   "license": "MIT",
+  "scripts": {
+    "test-all" : "node_modules/.bin/qunit tests/*"
+  },
   "devDependencies": {
     "qunit": "^2.9.1"
   }
