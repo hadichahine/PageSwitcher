@@ -1,45 +1,5 @@
-class PageSwitcher {
-    
-    constructor(pages){
-        this.pages = pages;
-        this.currentPageIndex = 0;
-    }
-
-    next(){
-        if(this.hasMoreThanOnePage() && this.didNotReachFinalPage()){
-            this.pages[this.currentPageIndex].hide();
-            this.pages[this.currentPageIndex + 1].show();
-            this.currentPageIndex++;
-        }
-    }
-
-    hasMoreThanOnePage(){
-        return this.pages.length > 1;
-    }
-
-    didNotReachFinalPage(){
-        return this.currentPageIndex !== this.pages.length - 1;
-    }
-
-}
-
-class PageSpy {
-
-    show(){
-        this.timesShown === undefined ? this.timesShown = 1 : this.timesShown++;
-        this.shown = true;
-    }
-
-    hide(){
-        this.timesHidden === undefined ? this.timesHidden = 1 : this.timesHidden++;
-        this.shown = false;
-    }
-
-    isShown(){
-        return this.shown;
-    }
-
-}
+const createPageSpy = require('./PageSpy.js');
+const PageSwitcher = require('./PageSwitcher.js');
 
 QUnit.test("Test that first page is kept the same when it's the only one there.",(assert)=>{
     let pages = createPageSpiesArrayWithLength(1),
@@ -92,6 +52,6 @@ function createPageSpiesArrayWithLength(length){
     let pageSpyArray = [];
     let i = 1;
     while(i++ <= length)
-        pageSpyArray.push(new PageSpy());
+        pageSpyArray.push(createPageSpy());
     return pageSpyArray;
 }
