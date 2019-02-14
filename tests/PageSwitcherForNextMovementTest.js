@@ -1,5 +1,5 @@
 const createPageSpy = require('./PageSpy.js');
-const PageSwitcher = require('./PageSwitcher.js');
+const PageSwitcher = require('../src/PageSwitcher.js');
 
 QUnit.test("Test that first page is kept the same when it's the only one there.",(assert)=>{
     let pages = createPageSpiesArrayWithLength(1),
