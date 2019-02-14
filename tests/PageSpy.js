@@ -4,6 +4,11 @@ module.exports = function createPageSpy(){
 
 class PageSpy {
 
+    constructor(){
+        this.timesShown = 0;
+        this.timesHidden = 0;
+    }
+
     show(){
         this.timesShown === undefined ? this.timesShown = 1 : this.timesShown++;
         this.shown = true;
