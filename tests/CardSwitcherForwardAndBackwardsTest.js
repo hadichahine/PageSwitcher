@@ -81,6 +81,18 @@ QUnit.test("Test that given that cardswitcher has 2 pages when next is triggered
     assert.ok(pages[1].timesShown === 0);
 });
 
+QUnit.test("Test that given that cardswitcher has 3 pages when next is triggered twice then backwards twice, cardswitcher returns to first page.",(assert) => {
+    let pages = createAlwaysShownPageSpiesArrayWithLength(3),
+        switcher = Switcher.createCardSwitcher(pages);
+    switcher.next();
+    switcher.next();
+    switcher.backwards();
+    switcher.backwards();
+    assert.ok(pages[0].isShown());
+    assert.ok(pages[1].isShown());
+    assert.ok(pages[2].isShown());
+});
+
 function createAlwaysShownPageSpiesArrayWithLength(length){
     let pageSpyArray = [];
     let i = 1;
