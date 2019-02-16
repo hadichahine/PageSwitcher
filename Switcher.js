@@ -1,5 +1,5 @@
-const CardSwitcher = require("./CardSwitcher.js");
-const SingleSwitcher = require("./SingleSwitcher.js");
+const CardSwitcher = require("./switchers/CardSwitcher.js");
+const SingleSwitcher = require("./switchers/SingleSwitcher.js");
 
 module.exports = {
 
