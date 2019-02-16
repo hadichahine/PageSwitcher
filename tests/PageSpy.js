@@ -1,10 +1,11 @@
-module.exports = function createPageSpy(){
-    return new PageSpy();
+module.exports = function createPageSpy(isShown){
+    return new PageSpy(isShown);
 }
 
 class PageSpy {
 
-    constructor(){
+    constructor(isShown){
+        this.shown = isShown;
         this.timesShown = 0;
         this.timesHidden = 0;
     }
