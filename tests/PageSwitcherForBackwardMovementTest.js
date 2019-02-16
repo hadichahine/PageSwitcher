@@ -1,51 +1,51 @@
 const createPageSpy = require('./PageSpy.js');
-const PageSwitcher = require('../PageSwitcher.js');
+const SingleSwitcher = require('../SingleSwitcher.js');
 
-QUnit.test("Test that given that pageswitcher has one page when backwards is triggered, pageswitcher does nothing on the page.",(assert) => {
+QUnit.test("Test that given that switcher has one page when backwards is triggered, switcher does nothing on the page.",(assert) => {
     let pages = createPageSpiesArrayWithLength(1),
-        pageSwitcher = new PageSwitcher(pages);
-    pageSwitcher.backwards();
+        switcher = new SingleSwitcher(pages);
+    switcher.backwards();
     assert.ok(pages[0].timesShown === 0);
     assert.ok(pages[0].timesHidden === 0);
 });
 
-QUnit.test("Test that given that pageswitcher has 2 pages when next and then backwards is triggered, pageswitcher hides current page",(assert) => {
+QUnit.test("Test that given that switcher has 2 pages when next and then backwards is triggered, switcher hides current page",(assert) => {
     let pages = createPageSpiesArrayWithLength(2),
-        pageSwitcher = new PageSwitcher(pages);
-    pageSwitcher.next();
-    pageSwitcher.backwards();
+        switcher = new SingleSwitcher(pages);
+    switcher.next();
+    switcher.backwards();
     assert.ok(pages[0].isShown());
     assert.ok(!pages[1].isShown());
 });
 
-QUnit.test("Test that given that pageswitcher has 2 pages when next and then backwards twice, pageswitcher hides current page and shows previous (next backwards is ignored.)",(assert) => {
+QUnit.test("Test that given that switcher has 2 pages when next and then backwards twice, switcher hides current page and shows previous (next backwards is ignored.)",(assert) => {
     let pages = createPageSpiesArrayWithLength(2),
-        pageSwitcher = new PageSwitcher(pages);
-    pageSwitcher.next();
-    pageSwitcher.backwards();
-    pageSwitcher.backwards();
+        switcher = new SingleSwitcher(pages);
+    switcher.next();
+    switcher.backwards();
+    switcher.backwards();
     assert.ok(pages[0].isShown());
     assert.ok(!pages[1].isShown());
 });
 
-QUnit.test("Test that given that pageswitcher has 3 pages when nexted twice and then backwards is triggered, pageswitcher hides current page",(assert) => {
+QUnit.test("Test that given that switcher has 3 pages when nexted twice and then backwards is triggered, switcher hides current page",(assert) => {
     let pages = createPageSpiesArrayWithLength(3),
-        pageSwitcher = new PageSwitcher(pages);
-    pageSwitcher.next();
-    pageSwitcher.next();
-    pageSwitcher.backwards();
+        switcher = new SingleSwitcher(pages);
+    switcher.next();
+    switcher.next();
+    switcher.backwards();
     assert.ok(!pages[0].isShown());
     assert.ok(pages[1].isShown());
     assert.ok(!pages[2].isShown());
 });
 
-QUnit.test("Test that given that pageswitcher has 3 pages when nexted twice and then backward twice, pageswitcher hides current page",(assert) => {
+QUnit.test("Test that given that switcher has 3 pages when nexted twice and then backward twice, switcher hides current page",(assert) => {
     let pages = createPageSpiesArrayWithLength(3),
-        pageSwitcher = new PageSwitcher(pages);
-    pageSwitcher.next();
-    pageSwitcher.next();
-    pageSwitcher.backwards();
-    pageSwitcher.backwards();
+        switcher = new SingleSwitcher(pages);
+    switcher.next();
+    switcher.next();
+    switcher.backwards();
+    switcher.backwards();
     assert.ok(pages[0].isShown());
     assert.ok(!pages[1].isShown());
     assert.ok(!pages[2].isShown());

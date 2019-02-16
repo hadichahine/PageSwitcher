@@ -1,4 +1,4 @@
-module.exports = class PageSwitcher {
+module.exports = class SingleSwitcher {
     
     constructor(pages){
         this.pages = pages;
