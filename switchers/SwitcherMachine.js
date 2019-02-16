@@ -1,19 +1,22 @@
 module.exports = class CardSwitcher{
 
-    constructor(pages){
+    constructor(pages,config){
+        this.config = config;
         this.pages = pages;
         this.currentPageIndex = 0;
     }
 
     next(){
         if(this.hasMoreThanOnePage() && this.isNotOnFinalPage()){
-            this.pages[this.currentPageIndex++].hide();
+            this.config.updateNext(this.pages[this.currentPageIndex],this.pages[this.currentPageIndex + 1]);
+            this.currentPageIndex++;
         }
     }
 
     backwards(){
         if(this.hasMoreThanOnePage() && this.isNotOnFirstPage()){
-            this.pages[--this.currentPageIndex].show();
+            this.config.updateBackwards(this.pages[this.currentPageIndex],this.pages[this.currentPageIndex - 1]);
+            this.currentPageIndex--;
         }
     }
 
