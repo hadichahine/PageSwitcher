@@ -7,17 +7,15 @@ module.exports = class PageSwitcher {
 
     next(){
         if(this.hasMoreThanOnePage() && this.isNotOnFinalPage()){
-            this.pages[this.currentPageIndex].hide();
-            this.pages[this.currentPageIndex + 1].show();
-            this.currentPageIndex++;
+            this.pages[this.currentPageIndex++].hide();
+            this.pages[this.currentPageIndex].show();
         }
     }
 
     backwards(){
         if(this.hasMoreThanOnePage() && this.isNotOnFirstPage()) {
-            this.pages[this.currentPageIndex - 1].show();
             this.pages[this.currentPageIndex].hide();
-            this.currentPageIndex--;
+            this.pages[--this.currentPageIndex].show();
         }
     }
 
