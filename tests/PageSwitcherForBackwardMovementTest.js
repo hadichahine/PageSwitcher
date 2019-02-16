@@ -1,5 +1,5 @@
 const createPageSpy = require('./PageSpy.js');
-const PageSwitcher = require('../src/PageSwitcher.js');
+const PageSwitcher = require('../PageSwitcher.js');
 
 QUnit.test("Test that given that pageswitcher has one page when backwards is triggered, pageswitcher does nothing on the page.",(assert) => {
     let pages = createPageSpiesArrayWithLength(1),
