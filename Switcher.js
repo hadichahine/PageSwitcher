@@ -1,12 +1,12 @@
-const SwitcherMachine = require("./switchers/SwitcherMachine.js");
+const PageStateMachine = require("./switchers/PageStateMachine");
 
-class CardSwitcherConfig {
+class CardLikeStateTransitionHandler {
 
-    updateNext(currentPage,nextPage){
+    doNext(currentPage,nextPage){
         currentPage.hide();
     }
 
-    updateBackwards(currentPage,previousPage){
+    doBackwards(currentPage,previousPage){
         previousPage.show();
     }
 
@@ -14,12 +14,12 @@ class CardSwitcherConfig {
 
 class SingleSwitcherConfig {
 
-    updateNext(currentPage,nextPage){
+    doNext(currentPage,nextPage){
         currentPage.hide();
         nextPage.show();
     }
 
-    updateBackwards(currentPage,previousPage){
+    doBackwards(currentPage,previousPage){
         currentPage.hide();
         previousPage.show();
     }
@@ -29,11 +29,11 @@ class SingleSwitcherConfig {
 module.exports = {
 
     createCardSwitcher: function(pages){
-        return new SwitcherMachine(pages,new CardSwitcherConfig());
+        return new PageStateMachine(pages,new CardLikeStateTransitionHandler());
     },
 
     createSinglePaneSwitcher: function(pages){
-        return new SwitcherMachine(pages,new SingleSwitcherConfig());
+        return new PageStateMachine(pages,new SingleSwitcherConfig());
     }
 
 }
