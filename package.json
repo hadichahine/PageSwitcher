@@ -2,6 +2,7 @@
   "name": "pageswitcher",
   "author": "Hadi Chahine",
   "license": "MIT",
+  "main": "Switcher.js",
   "scripts": {
     "test-all" : "node_modules/.bin/qunit tests/*"
   },
