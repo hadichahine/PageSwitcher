@@ -15,13 +15,13 @@ class CardLikeStateTransitionHandler {
 class SingleSwitcherConfig {
 
     doNext(currentPage,nextPage){
-        currentPage.hide();
-        nextPage.show();
+        currentPage.hide('forwards');
+        nextPage.show('forwards');
     }
 
     doBackwards(currentPage,previousPage){
-        currentPage.hide();
-        previousPage.show();
+        currentPage.hide('backwards');
+        previousPage.show('backwards');
     }
 
 }
